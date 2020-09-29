@@ -1,7 +1,6 @@
 @*
 ~*
 $*
-_*
 -*
 [Oo]bj/
 [Bb]in/
@@ -34,9 +33,5 @@ Thumbs.db
 .vs/
 *.tss
 *.lnk
-node_modules/
-/Source/Documents/dist
-/Source/Documents/build
-/Source/Benchmark
 .vscode/
 */**/Properties/launchSettings.json
