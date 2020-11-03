@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +15,7 @@ namespace Pe.Installer
         public Form1()
         {
             InitializeComponent();
+            Font = SystemFonts.MenuFont;
         }
     }
 }
