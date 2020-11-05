@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Downloader.cs" />
     <Compile Include="InstallerForm.cs">
       <SubType>Form</SubType>
     </Compile>
