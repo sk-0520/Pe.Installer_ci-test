@@ -13,12 +13,13 @@ namespace Pe.Installer
         /// <summary>
         /// アップデートに用いる情報の記載されたファイルの URI。
         /// </summary>
-        public static Uri UpdateFileUri { get; }
+        public static Uri UpdateFileUri { get; } =
 #if DEBUG
-         = new Uri("https://bitbucket.org/sk_0520/pe/downloads/update.json");
+             new Uri("https://bitbucket.org/sk_0520/pe-ci_test/downloads/update.json")
 #else
-         = new Uri("https://bitbucket.org/sk_0520/pe-ci_test/downloads/update.json");
+             new Uri("https://bitbucket.org/sk_0520/pe/downloads/update.json")
 #endif
+        ;
 
         #endregion
     }
