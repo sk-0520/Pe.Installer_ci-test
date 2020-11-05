@@ -1,6 +1,6 @@
 ﻿namespace Pe.Installer
 {
-    partial class Form1
+    partial class InstallerForm
     {
         /// <summary>
         /// 必要なデザイナー変数です。

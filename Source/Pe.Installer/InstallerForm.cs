@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Pe.Installer
 {
-    public partial class Form1 : Form
+    public partial class InstallerForm : Form
     {
-        public Form1()
+        public InstallerForm()
         {
             InitializeComponent();
             Font = SystemFonts.MenuFont;
