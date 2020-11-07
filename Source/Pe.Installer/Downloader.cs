@@ -9,8 +9,14 @@ namespace Pe.Installer
 {
     public class Downloader
     {
+        public Downloader()
+        {
+
+        }
+
         #region property
 
+                ILogger Logger { get; }
         HttpClient HttpClient { get; } = new HttpClient();
 
         #endregion
