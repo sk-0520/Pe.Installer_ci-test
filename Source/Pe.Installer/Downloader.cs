@@ -9,14 +9,14 @@ namespace Pe.Installer
 {
     public class Downloader
     {
-        public Downloader()
+        public Downloader(ILoggerFactory loggerFactory)
         {
-
+            Logger = loggerFactory.CreateLogger(GetType());
         }
 
         #region property
 
-                ILogger Logger { get; }
+        ILogger Logger { get; }
         HttpClient HttpClient { get; } = new HttpClient();
 
         #endregion
@@ -26,6 +26,8 @@ namespace Pe.Installer
         public async Task<Uri> GetArchiveUriAsync(Uri updateInfoUri)
         {
             var stream = await HttpClient.GetStreamAsync(updateInfoUri);
+
+            throw new NotImplementedException();
         }
 
         #endregion

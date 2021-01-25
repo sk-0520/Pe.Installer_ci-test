@@ -15,7 +15,23 @@ namespace Pe.Installer
         public InstallerForm()
         {
             InitializeComponent();
-            Font = SystemFonts.MenuFont;
+            Font = SystemFonts.MessageBoxFont;
         }
+
+        private void commandDirectoryPath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void commandClose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void commandExecute_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
