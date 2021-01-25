@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Pe.Installer
 {
@@ -22,7 +23,7 @@ namespace Pe.Installer
 
         void LogTrace(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0);
         void LogDebug(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0);
-        void Information(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0);
+        void LogInfo(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0);
         void LogWarning(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0);
         void LogError(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0);
 
@@ -38,14 +39,17 @@ namespace Pe.Installer
         #endregion
     }
 
-    internal class Logger: ILogger, ILoggerFactory
+    internal class InternalLogger: ILogger
     {
-        private Logger(string name)
+        public InternalLogger(ListBox listBox, string name)
         {
+            ListBox = listBox;
             Name = name;
         }
 
         #region property
+
+        ListBox ListBox { get; }
 
         public string Name { get; }
 
@@ -55,17 +59,13 @@ namespace Pe.Installer
 
         void Log(LogKind logKind, string message, string callerMemberName, string callerFilePath, int callerLineNumber)
         {
-
-        }
-
-        #endregion
-
-        #region ILoggerFactory
-
-        /// <inheritdoc cref="ILoggerFactory.CreateLogger(Type)"/>
-        public ILogger CreateLogger(Type type)
-        {
-            return new Logger(type.Name);
+            if(ListBox.InvokeRequired) {
+                ListBox.BeginInvoke(new Action(() => {
+                    ListBox.Items.Add($"{logKind} {message}");
+                }));
+            } else {
+                ListBox.Items.Add($"{logKind} {message}");
+            }
         }
 
         #endregion
@@ -77,7 +77,7 @@ namespace Pe.Installer
         /// <inheritdoc cref="ILogger.LogDebug(string, string, string, int)"/>
         public void LogDebug(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0) => Log(LogKind.Debug, message, callerMemberName, callerFilePath, callerLineNumber);
         /// <inheritdoc cref="ILogger.Information(string, string, string, int)"/>
-        public void Information(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0) => Log(LogKind.Information, message, callerMemberName, callerFilePath, callerLineNumber);
+        public void LogInfo(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0) => Log(LogKind.Information, message, callerMemberName, callerFilePath, callerLineNumber);
         /// <inheritdoc cref="ILogger.LogWarning(string, string, string, int)"/>
         public void LogWarning(string message, [CallerMemberName] string callerMemberName = "", [CallerFilePath] string callerFilePath = "", [CallerLineNumber] int callerLineNumber = 0) => Log(LogKind.Warning, message, callerMemberName, callerFilePath, callerLineNumber);
         /// <inheritdoc cref="ILogger.LogError(string, string, string, int)"/>
@@ -85,4 +85,28 @@ namespace Pe.Installer
 
         #endregion
     }
+
+    internal class InternalLoggerFactory: ILoggerFactory
+    {
+        public InternalLoggerFactory(ListBox listBox)
+        {
+            ListBox = listBox;
+        }
+
+        #region property
+
+        ListBox ListBox { get; }
+
+        #endregion
+
+        #region ILoggerFactory
+
+        public ILogger CreateLogger(Type type)
+        {
+            return new InternalLogger(ListBox, type.FullName);
+        }
+
+        #endregion
+    }
+
 }

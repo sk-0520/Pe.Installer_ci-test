@@ -32,15 +32,15 @@
             this.labelDirectoryPath = new System.Windows.Forms.Label();
             this.labelPlatform = new System.Windows.Forms.Label();
             this.commandDirectoryPath = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listPlatform = new System.Windows.Forms.ComboBox();
             this.labelTotalProgress = new System.Windows.Forms.Label();
             this.labelCurrentProgress = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressTotal = new System.Windows.Forms.ProgressBar();
             this.listLog = new System.Windows.Forms.ListBox();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.progressCurrent = new System.Windows.Forms.ProgressBar();
             this.commandExecute = new System.Windows.Forms.Button();
             this.commandClose = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.inputDirectoryPath = new System.Windows.Forms.TextBox();
             this.gridMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,15 +53,15 @@
             this.gridMain.Controls.Add(this.labelDirectoryPath, 0, 0);
             this.gridMain.Controls.Add(this.labelPlatform, 0, 1);
             this.gridMain.Controls.Add(this.commandDirectoryPath, 2, 0);
-            this.gridMain.Controls.Add(this.comboBox1, 1, 1);
+            this.gridMain.Controls.Add(this.listPlatform, 1, 1);
             this.gridMain.Controls.Add(this.labelTotalProgress, 0, 2);
             this.gridMain.Controls.Add(this.labelCurrentProgress, 0, 3);
-            this.gridMain.Controls.Add(this.progressBar1, 1, 2);
+            this.gridMain.Controls.Add(this.progressTotal, 1, 2);
             this.gridMain.Controls.Add(this.listLog, 1, 4);
-            this.gridMain.Controls.Add(this.progressBar2, 1, 3);
+            this.gridMain.Controls.Add(this.progressCurrent, 1, 3);
             this.gridMain.Controls.Add(this.commandExecute, 1, 5);
             this.gridMain.Controls.Add(this.commandClose, 2, 5);
-            this.gridMain.Controls.Add(this.textBox1, 1, 0);
+            this.gridMain.Controls.Add(this.inputDirectoryPath, 1, 0);
             this.gridMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridMain.Location = new System.Drawing.Point(6, 6);
             this.gridMain.Name = "gridMain";
@@ -83,9 +83,9 @@
             this.labelDirectoryPath.AutoSize = true;
             this.labelDirectoryPath.Location = new System.Drawing.Point(3, 0);
             this.labelDirectoryPath.Name = "labelDirectoryPath";
-            this.labelDirectoryPath.Size = new System.Drawing.Size(73, 29);
+            this.labelDirectoryPath.Size = new System.Drawing.Size(85, 29);
             this.labelDirectoryPath.TabIndex = 0;
-            this.labelDirectoryPath.Text = "ディレクトリ";
+            this.labelDirectoryPath.Text = "*ディレクトリ*";
             this.labelDirectoryPath.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelPlatform
@@ -96,13 +96,14 @@
             this.labelPlatform.AutoSize = true;
             this.labelPlatform.Location = new System.Drawing.Point(3, 29);
             this.labelPlatform.Name = "labelPlatform";
-            this.labelPlatform.Size = new System.Drawing.Size(73, 26);
+            this.labelPlatform.Size = new System.Drawing.Size(85, 26);
             this.labelPlatform.TabIndex = 1;
-            this.labelPlatform.Text = "プラットフォーム";
+            this.labelPlatform.Text = "*プラットフォーム*";
             this.labelPlatform.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // commandDirectoryPath
             // 
+            this.commandDirectoryPath.AutoSize = true;
             this.commandDirectoryPath.Location = new System.Drawing.Point(314, 3);
             this.commandDirectoryPath.Name = "commandDirectoryPath";
             this.commandDirectoryPath.Size = new System.Drawing.Size(75, 23);
@@ -111,15 +112,15 @@
             this.commandDirectoryPath.UseVisualStyleBackColor = true;
             this.commandDirectoryPath.Click += new System.EventHandler(this.commandDirectoryPath_Click);
             // 
-            // comboBox1
+            // listPlatform
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(82, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(226, 20);
-            this.comboBox1.TabIndex = 4;
+            this.listPlatform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.listPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.listPlatform.FormattingEnabled = true;
+            this.listPlatform.Location = new System.Drawing.Point(94, 32);
+            this.listPlatform.Name = "listPlatform";
+            this.listPlatform.Size = new System.Drawing.Size(214, 20);
+            this.listPlatform.TabIndex = 4;
             // 
             // labelTotalProgress
             // 
@@ -129,9 +130,9 @@
             this.labelTotalProgress.AutoSize = true;
             this.labelTotalProgress.Location = new System.Drawing.Point(3, 55);
             this.labelTotalProgress.Name = "labelTotalProgress";
-            this.labelTotalProgress.Size = new System.Drawing.Size(73, 29);
+            this.labelTotalProgress.Size = new System.Drawing.Size(85, 29);
             this.labelTotalProgress.TabIndex = 5;
-            this.labelTotalProgress.Text = "全体進捗";
+            this.labelTotalProgress.Text = "*全体進捗*";
             this.labelTotalProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelCurrentProgress
@@ -142,47 +143,43 @@
             this.labelCurrentProgress.AutoSize = true;
             this.labelCurrentProgress.Location = new System.Drawing.Point(3, 84);
             this.labelCurrentProgress.Name = "labelCurrentProgress";
-            this.labelCurrentProgress.Size = new System.Drawing.Size(73, 29);
+            this.labelCurrentProgress.Size = new System.Drawing.Size(85, 29);
             this.labelCurrentProgress.TabIndex = 7;
-            this.labelCurrentProgress.Text = "現在進捗";
+            this.labelCurrentProgress.Text = "*現在進捗*";
             this.labelCurrentProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // progressBar1
+            // progressTotal
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(82, 58);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(226, 23);
-            this.progressBar1.TabIndex = 6;
+            this.progressTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressTotal.Location = new System.Drawing.Point(94, 58);
+            this.progressTotal.Name = "progressTotal";
+            this.progressTotal.Size = new System.Drawing.Size(214, 23);
+            this.progressTotal.TabIndex = 6;
             // 
             // listLog
             // 
             this.listLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listLog.FormattingEnabled = true;
             this.listLog.ItemHeight = 12;
-            this.listLog.Location = new System.Drawing.Point(82, 116);
+            this.listLog.Location = new System.Drawing.Point(94, 116);
             this.listLog.Name = "listLog";
-            this.listLog.Size = new System.Drawing.Size(226, 223);
+            this.listLog.Size = new System.Drawing.Size(214, 223);
             this.listLog.TabIndex = 8;
             // 
-            // progressBar2
+            // progressCurrent
             // 
-            this.progressBar2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar2.Location = new System.Drawing.Point(82, 87);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(226, 23);
-            this.progressBar2.TabIndex = 6;
+            this.progressCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressCurrent.Location = new System.Drawing.Point(94, 87);
+            this.progressCurrent.Name = "progressCurrent";
+            this.progressCurrent.Size = new System.Drawing.Size(214, 23);
+            this.progressCurrent.TabIndex = 6;
             // 
             // commandExecute
             // 
             this.commandExecute.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.commandExecute.Location = new System.Drawing.Point(82, 345);
+            this.commandExecute.Location = new System.Drawing.Point(94, 345);
             this.commandExecute.Name = "commandExecute";
-            this.commandExecute.Size = new System.Drawing.Size(226, 41);
+            this.commandExecute.Size = new System.Drawing.Size(214, 41);
             this.commandExecute.TabIndex = 10;
             this.commandExecute.Text = "*インストール/実行*";
             this.commandExecute.UseVisualStyleBackColor = true;
@@ -190,22 +187,23 @@
             // 
             // commandClose
             // 
+            this.commandClose.AutoSize = true;
             this.commandClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.commandClose.Location = new System.Drawing.Point(314, 345);
             this.commandClose.Name = "commandClose";
             this.commandClose.Size = new System.Drawing.Size(75, 41);
             this.commandClose.TabIndex = 11;
-            this.commandClose.Text = "閉じる";
+            this.commandClose.Text = "*閉じる*";
             this.commandClose.UseVisualStyleBackColor = true;
             this.commandClose.Click += new System.EventHandler(this.commandClose_Click);
             // 
-            // textBox1
+            // inputDirectoryPath
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(82, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(226, 19);
-            this.textBox1.TabIndex = 2;
+            this.inputDirectoryPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.inputDirectoryPath.Location = new System.Drawing.Point(94, 5);
+            this.inputDirectoryPath.Name = "inputDirectoryPath";
+            this.inputDirectoryPath.Size = new System.Drawing.Size(214, 19);
+            this.inputDirectoryPath.TabIndex = 2;
             // 
             // InstallerForm
             // 
@@ -219,7 +217,8 @@
             this.Padding = new System.Windows.Forms.Padding(6);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pe Installer";
+            this.Text = "*Pe Installer*";
+            this.Load += new System.EventHandler(this.InstallerForm_Load);
             this.gridMain.ResumeLayout(false);
             this.gridMain.PerformLayout();
             this.ResumeLayout(false);
@@ -231,14 +230,14 @@
         private System.Windows.Forms.TableLayoutPanel gridMain;
         private System.Windows.Forms.Label labelDirectoryPath;
         private System.Windows.Forms.Label labelPlatform;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox inputDirectoryPath;
         private System.Windows.Forms.Button commandDirectoryPath;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox listPlatform;
         private System.Windows.Forms.Label labelTotalProgress;
         private System.Windows.Forms.Label labelCurrentProgress;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressTotal;
         private System.Windows.Forms.ListBox listLog;
-        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.ProgressBar progressCurrent;
         private System.Windows.Forms.Button commandExecute;
         private System.Windows.Forms.Button commandClose;
     }

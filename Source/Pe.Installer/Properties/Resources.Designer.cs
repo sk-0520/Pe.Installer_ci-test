@@ -59,5 +59,113 @@ namespace Pe.Installer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   キャンセル(&amp;C) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Cancel_A {
+            get {
+                return ResourceManager.GetString("String_Cancel_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Pe インストーラ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Caption {
+            get {
+                return ResourceManager.GetString("String_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   閉じる(&amp;X) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Close_A {
+            get {
+                return ResourceManager.GetString("String_Close_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   インストール(&amp;I) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Execute_Install_A {
+            get {
+                return ResourceManager.GetString("String_Execute_Install_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   起動(&amp;E) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Execute_Start_A {
+            get {
+                return ResourceManager.GetString("String_Execute_Start_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   現在進捗 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Label_CurrentProgress_A {
+            get {
+                return ResourceManager.GetString("String_Label_CurrentProgress_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ディレクトリ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Label_DirectoryPath_A {
+            get {
+                return ResourceManager.GetString("String_Label_DirectoryPath_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プラットフォーム に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Label_Platform_A {
+            get {
+                return ResourceManager.GetString("String_Label_Platform_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   全体進捗 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Label_TotalProgress_A {
+            get {
+                return ResourceManager.GetString("String_Label_TotalProgress_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   32bit に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Platform_32bit {
+            get {
+                return ResourceManager.GetString("String_Platform_32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   64bit に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Platform_64bit {
+            get {
+                return ResourceManager.GetString("String_Platform_64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   選択...(&amp;D) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_SelectDirectoryPath_A {
+            get {
+                return ResourceManager.GetString("String_SelectDirectoryPath_A", resourceCulture);
+            }
+        }
     }
 }

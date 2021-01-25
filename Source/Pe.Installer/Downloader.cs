@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Pe.Installer
@@ -23,9 +24,10 @@ namespace Pe.Installer
 
         #region function
 
-        public async Task<Uri> GetArchiveUriAsync(Uri updateInfoUri)
+        public async Task<Uri> GetArchiveUriAsync(Uri updateInfoUri, string platform, CancellationToken token)
         {
             var stream = await HttpClient.GetStreamAsync(updateInfoUri);
+
 
             throw new NotImplementedException();
         }
