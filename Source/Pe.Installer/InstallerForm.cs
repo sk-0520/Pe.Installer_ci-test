@@ -26,7 +26,7 @@ namespace Pe.Installer
         }
 
 
-        #region proeprty
+        #region property
 
         ILoggerFactory LoggerFactory { get; }
         ILogger Logger { get; }
@@ -103,15 +103,43 @@ namespace Pe.Installer
                 this.commandClose.Text = Properties.Resources.String_Cancel_A;
                 CancellationTokenSource = new CancellationTokenSource();
 
+                var progress = new {
+                    Total = new ProgressLogger(this.progressTotal),
+                    Current = new ProgressLogger(this.progressCurrent),
+                };
+
+                progress.Total.Reset(10);
+
                 try {
                     var selectedItem = (PlatformListItem)this.listPlatform.SelectedItem;
 
-                    var downloader = new Downloader(LoggerFactory);
-                    var donwloadUri = await downloader.GetArchiveUriAsync(Constants.UpdateFileUri, selectedItem.Value, CancellationTokenSource.Token);
-                    Logger.LogDebug(donwloadUri.ToString());
+                    var downloader = new Downloader(progress.Current, LoggerFactory);
 
+                    var updateItemData = await downloader.GetUpdateItemDataAsync(Constants.UpdateFileUri, selectedItem.Value, CancellationTokenSource.Token);
+                    progress.Total.Stepup();
+
+                    var stream = await downloader.GetArchiveAsync(updateItemData.ArchiveUri, CancellationTokenSource.Token);
+                    progress.Total.Stepup();
+
+                    var hash = new Checker(progress.Current, LoggerFactory);
+                    var isChecked = await hash.CheckAsync(stream, updateItemData.ArchiveSize, updateItemData.ArchiveHashKind, updateItemData.ArchiveHashValue);
+                    if(!isChecked) {
+                        Logger.LogWarning("check error");
+                        return;
+                    }
+                    progress.Total.Stepup();
+
+                    var extractor = new Extractor(progress.Current, LoggerFactory);
+                    await extractor.ExtractAsync(stream, new DirectoryInfo(this.inputDirectoryPath.Text), updateItemData.ArchiveKind);
+
+                } catch(OperationCanceledException) {
+                    Logger.LogInfo("cancel");
+                } catch(Exception ex) {
+                    Logger.LogError(ex.ToString());
                 } finally {
                     this.commandExecute.Enabled = true;
+                    this.commandClose.Text = Properties.Resources.String_Close_A;
+                    CancellationTokenSource = null;
                 }
             }
         }

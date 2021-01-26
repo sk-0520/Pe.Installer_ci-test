@@ -8,7 +8,7 @@ namespace Pe.Installer
 {
     public interface IListItem
     {
-        #region proeprty
+        #region property
 
         string Display { get; }
         object RawValue { get; }
@@ -44,7 +44,7 @@ namespace Pe.Installer
             : base(display, value)
         { }
 
-        #region proeprty
+        #region property
 
         public T Value => (T)RawValue;
 

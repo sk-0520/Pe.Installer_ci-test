@@ -160,9 +160,11 @@
             // 
             this.listLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listLog.FormattingEnabled = true;
+            this.listLog.HorizontalScrollbar = true;
             this.listLog.ItemHeight = 12;
             this.listLog.Location = new System.Drawing.Point(94, 116);
             this.listLog.Name = "listLog";
+            this.listLog.ScrollAlwaysVisible = true;
             this.listLog.Size = new System.Drawing.Size(214, 223);
             this.listLog.TabIndex = 8;
             // 

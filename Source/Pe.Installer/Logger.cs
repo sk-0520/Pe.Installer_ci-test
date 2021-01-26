@@ -62,9 +62,11 @@ namespace Pe.Installer
             if(ListBox.InvokeRequired) {
                 ListBox.BeginInvoke(new Action(() => {
                     ListBox.Items.Add($"{logKind} {message}");
+                    ListBox.SelectedIndex = ListBox.Items.Count - 1;
                 }));
             } else {
                 ListBox.Items.Add($"{logKind} {message}");
+                ListBox.SelectedIndex = ListBox.Items.Count - 1;
             }
         }
 

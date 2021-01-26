@@ -8,7 +8,7 @@ namespace Pe.Installer
 {
     public static class Constants
     {
-        #region proeprty
+        #region property
 
         /// <summary>
         /// アップデートに用いる情報の記載されたファイルの URI。
