@@ -84,9 +84,8 @@ namespace Pe.Installer
         private void commandClose_Click(object sender, EventArgs e)
         {
             if(CancellationTokenSource != null) {
+                this.commandClose.Enabled = false;
                 CancellationTokenSource.Cancel();
-                this.commandClose.Text = Properties.Resources.String_Close_A;
-                CancellationTokenSource = null;
             } else {
                 Close();
             }
@@ -100,6 +99,10 @@ namespace Pe.Installer
                 Logger.LogInfo("INSTALL");
 
                 this.commandExecute.Enabled = false;
+                this.commandDirectoryPath.Enabled = false;
+                this.inputDirectoryPath.ReadOnly = true;
+                this.listPlatform.Enabled = false;
+
                 this.commandClose.Text = Properties.Resources.String_Cancel_A;
                 CancellationTokenSource = new CancellationTokenSource();
 
@@ -108,7 +111,7 @@ namespace Pe.Installer
                     Current = new ProgressLogger(this.progressCurrent),
                 };
 
-                progress.Total.Reset(10);
+                progress.Total.Reset(100 / 4);
 
                 try {
                     var selectedItem = (PlatformListItem)this.listPlatform.SelectedItem;
@@ -131,6 +134,7 @@ namespace Pe.Installer
 
                     var extractor = new Extractor(progress.Current, LoggerFactory);
                     await extractor.ExtractAsync(stream, new DirectoryInfo(this.inputDirectoryPath.Text), updateItemData.ArchiveKind);
+                    progress.Total.Stepup();
 
                 } catch(OperationCanceledException) {
                     Logger.LogInfo("cancel");
@@ -138,8 +142,22 @@ namespace Pe.Installer
                     Logger.LogError(ex.ToString());
                 } finally {
                     this.commandExecute.Enabled = true;
+                    this.commandDirectoryPath.Enabled = !Installed;
+                    this.inputDirectoryPath.ReadOnly = Installed;
+                    this.listPlatform.Enabled = !Installed;
+
+                    this.commandClose.Enabled = true;
+
                     this.commandClose.Text = Properties.Resources.String_Close_A;
+
+                    //progress.Total.Reset(0); // 全体進捗は一応残しておく
+                    progress.Current.Reset(0);
+
+                    var cancel = CancellationTokenSource;
                     CancellationTokenSource = null;
+                    try {
+                        cancel.Dispose();
+                    } catch { }
                 }
             }
         }
