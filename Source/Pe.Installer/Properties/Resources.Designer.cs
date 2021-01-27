@@ -61,6 +61,16 @@ namespace Pe.Installer.Properties {
         }
         
         /// <summary>
+        ///   型 System.Byte[] のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static byte[] File_SevenZipDll {
+            get {
+                object obj = ResourceManager.GetObject("File_SevenZipDll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   キャンセル(&amp;C) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string String_Cancel_A {

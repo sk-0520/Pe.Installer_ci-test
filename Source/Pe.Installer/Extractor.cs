@@ -28,13 +28,19 @@ namespace Pe.Installer
 
         private void Extract7z(Stream stream, DirectoryInfo extractDirectory)
         {
-            using(var archive = new ArchiveFile(stream)) {
+            var dllPath = Path.Combine(Constants.TemporaryDirectoryPath, "7z.dll");
+            if(!File.Exists(dllPath)) {
+                Directory.CreateDirectory(Constants.TemporaryDirectoryPath);
+                File.WriteAllBytes(dllPath, Properties.Resources.File_SevenZipDll);
+            }
+
+            using(var archive = new ArchiveFile(stream, null,dllPath)) {
                 var totalExtractItemCount = archive.Entries.Count;
                 var extractedItemCount = 0;
                 archive.Extract(e => {
                     var expandPath = Path.Combine(extractDirectory.FullName, e.FileName);
 
-                    Logger.LogTrace("展開: {0}", expandPath);
+                    Logger.LogTrace($"展開: {expandPath}");
                     extractedItemCount += 1;
                     ProgressLogger.Set((int)(extractedItemCount / (double)totalExtractItemCount));
 

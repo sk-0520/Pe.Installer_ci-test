@@ -29,6 +29,8 @@ namespace Pe.Installer
         {
             ProgressLogger.Wait();
 
+            Logger.LogDebug($"SIZE1: {stream.Length}");
+            Logger.LogDebug($"SIZE2: {archiveSize}");
             if(stream.Length != archiveSize) {
                 Logger.LogWarning($"{stream.Length} != {archiveSize}");
                 return Task.FromResult(false);

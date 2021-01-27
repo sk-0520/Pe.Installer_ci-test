@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +23,25 @@ namespace Pe.Installer
 #endif
         ;
 
+        public static string InstallDirectoryPath { get; } =
+#if DEBUG
+            Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "install")
+#else
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Pe", "application");
+#endif
+        ;
+
+        public static string TemporaryDirectoryPath { get; } =
+#if DEBUG
+            Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "temp")
+#else
+            Environment.ExpandEnvironmentVariables(Path.Combine("%TEMP%", "Pe", "installer"))
+#endif
+            ;
+
+#if DEBUG
+        public static string ApplicationDataDirectoryPath { get; } = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "data");
+#endif
         #endregion
     }
 }

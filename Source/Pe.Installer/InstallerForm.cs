@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -47,7 +48,7 @@ namespace Pe.Installer
         private void InstallerForm_Load(object sender, EventArgs e)
         {
             // ディレクトリ設定
-            this.inputDirectoryPath.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Pe", "application");
+            this.inputDirectoryPath.Text = Constants.InstallDirectoryPath;
 
             // プラットフォーム設定
             if(Environment.Is64BitOperatingSystem) {
@@ -94,7 +95,16 @@ namespace Pe.Installer
         private async void commandExecute_Click(object sender, EventArgs e)
         {
             if(Installed) {
-
+                var appPath = Path.Combine(this.commandClose.Text, "Pe.exe");
+#if DEBUG
+                var user = Path.Combine(Constants.ApplicationDataDirectoryPath, "user");
+                var machine = Path.Combine(Constants.ApplicationDataDirectoryPath, "machine");
+                var temp = Path.Combine(Constants.ApplicationDataDirectoryPath, "temp");
+                Process.Start(appPath, $" --user-dir=\"{user}\" --machine-dir=\"{machine}\" --temp-dir=\"{temp}\"");
+#else
+                Process.Start(appPath);
+#endif
+                Close();
             } else {
                 Logger.LogInfo("INSTALL");
 
@@ -135,6 +145,9 @@ namespace Pe.Installer
                     var extractor = new Extractor(progress.Current, LoggerFactory);
                     await extractor.ExtractAsync(stream, new DirectoryInfo(this.inputDirectoryPath.Text), updateItemData.ArchiveKind);
                     progress.Total.Stepup();
+
+                    Installed = true;
+                    this.commandExecute.Text = Properties.Resources.String_Execute_Start_A;
 
                 } catch(OperationCanceledException) {
                     Logger.LogInfo("cancel");
