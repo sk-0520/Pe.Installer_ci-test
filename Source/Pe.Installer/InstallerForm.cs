@@ -95,7 +95,7 @@ namespace Pe.Installer
         private async void commandExecute_Click(object sender, EventArgs e)
         {
             if(Installed) {
-                var appPath = Path.Combine(this.commandClose.Text, "Pe.exe");
+                var appPath = Path.Combine(this.inputDirectoryPath.Text, "Pe.exe");
 #if DEBUG
                 var user = Path.Combine(Constants.ApplicationDataDirectoryPath, "user");
                 var machine = Path.Combine(Constants.ApplicationDataDirectoryPath, "machine");
