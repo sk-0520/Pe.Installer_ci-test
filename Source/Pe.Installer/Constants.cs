@@ -27,7 +27,7 @@ namespace Pe.Installer
 #if DEBUG
             Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "install")
 #else
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Pe", "application");
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Pe", "application")
 #endif
         ;
 
