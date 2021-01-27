@@ -30,7 +30,7 @@ namespace Pe.Installer
 
         public async Task<UpdateItemData> GetUpdateItemDataAsync(Uri updateInfoUri, string platform, CancellationToken cancellationToken)
         {
-            Logger.LogInfo($"DL: {updateInfoUri}");
+            Logger.LogInfo($"{Properties.Resources.String_Download_UpdateInfoUri}: {updateInfoUri}");
 
             ProgressLogger.Wait();
 
@@ -46,14 +46,14 @@ namespace Pe.Installer
                 .First()
             ;
 
-            Logger.LogInfo($"VERSION: {updateItemData.Version}");
+            Logger.LogInfo($"{Properties.Resources.String_Download_Version}: {updateItemData.Version}");
 
             return updateItemData;
         }
 
         public async Task<Stream> GetArchiveAsync(Uri archiveUri, CancellationToken cancellationToken)
         {
-            Logger.LogInfo($"ARCHIVE: {archiveUri}");
+            Logger.LogInfo($"{Properties.Resources.String_Download_ArchiveUri}: {archiveUri}");
             ProgressLogger.Wait();
 
             var response = await HttpClient.GetAsync(archiveUri, HttpCompletionOption.ResponseHeadersRead, cancellationToken);

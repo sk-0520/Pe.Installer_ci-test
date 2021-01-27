@@ -118,9 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="App_release" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\App-release.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="File_SevenZipDll" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\packages\SevenZipExtractor.1.0.15\build\x86\7z.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     <comment>SevenZipExtractor 更新時にお手々で参照先修正が必要</comment>
+  </data>
+  <data name="String_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
   </data>
   <data name="String_Cancel_A" xml:space="preserve">
     <value>キャンセル(&amp;C)</value>
@@ -128,14 +134,44 @@
   <data name="String_Caption" xml:space="preserve">
     <value>Pe インストーラ</value>
   </data>
+  <data name="String_CheckError" xml:space="preserve">
+    <value>チェックエラー</value>
+  </data>
+  <data name="String_Check_Hash_Data" xml:space="preserve">
+    <value>取得ハッシュ</value>
+  </data>
+  <data name="String_Check_Hash_Info" xml:space="preserve">
+    <value>検証ハッシュ</value>
+  </data>
+  <data name="String_Check_Size_Data" xml:space="preserve">
+    <value>取得サイズ</value>
+  </data>
+  <data name="String_Check_Size_Info" xml:space="preserve">
+    <value>検証サイズ</value>
+  </data>
   <data name="String_Close_A" xml:space="preserve">
     <value>閉じる(&amp;X)</value>
+  </data>
+  <data name="String_Download_ArchiveUri" xml:space="preserve">
+    <value>アーカイブURL</value>
+  </data>
+  <data name="String_Download_UpdateInfoUri" xml:space="preserve">
+    <value>アップデートURI</value>
+  </data>
+  <data name="String_Download_Version" xml:space="preserve">
+    <value>バージョン</value>
   </data>
   <data name="String_Execute_Install_A" xml:space="preserve">
     <value>インストール(&amp;I)</value>
   </data>
   <data name="String_Execute_Start_A" xml:space="preserve">
     <value>起動(&amp;E)</value>
+  </data>
+  <data name="String_Extract_Extract" xml:space="preserve">
+    <value>展開</value>
+  </data>
+  <data name="String_Install" xml:space="preserve">
+    <value>インストール</value>
   </data>
   <data name="String_Label_CurrentProgress_A" xml:space="preserve">
     <value>現在進捗</value>
@@ -175,5 +211,8 @@
   </data>
   <data name="String_SelectDirectoryPath_A" xml:space="preserve">
     <value>選択...(&amp;D)</value>
+  </data>
+  <data name="String_Start" xml:space="preserve">
+    <value>開始</value>
   </data>
 </root>

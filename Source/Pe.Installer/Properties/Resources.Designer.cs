@@ -61,12 +61,31 @@ namespace Pe.Installer.Properties {
         }
         
         /// <summary>
+        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Icon App_release {
+            get {
+                object obj = ResourceManager.GetObject("App_release", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   型 System.Byte[] のローカライズされたリソースを検索します。
         /// </summary>
         internal static byte[] File_SevenZipDll {
             get {
                 object obj = ResourceManager.GetObject("File_SevenZipDll", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   キャンセル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Cancel {
+            get {
+                return ResourceManager.GetString("String_Cancel", resourceCulture);
             }
         }
         
@@ -89,11 +108,83 @@ namespace Pe.Installer.Properties {
         }
         
         /// <summary>
+        ///   取得ハッシュ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Check_Hash_Data {
+            get {
+                return ResourceManager.GetString("String_Check_Hash_Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   検証ハッシュ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Check_Hash_Info {
+            get {
+                return ResourceManager.GetString("String_Check_Hash_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   取得サイズ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Check_Size_Data {
+            get {
+                return ResourceManager.GetString("String_Check_Size_Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   検証サイズ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Check_Size_Info {
+            get {
+                return ResourceManager.GetString("String_Check_Size_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   チェックエラー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_CheckError {
+            get {
+                return ResourceManager.GetString("String_CheckError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   閉じる(&amp;X) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string String_Close_A {
             get {
                 return ResourceManager.GetString("String_Close_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   アーカイブURL に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Download_ArchiveUri {
+            get {
+                return ResourceManager.GetString("String_Download_ArchiveUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   アップデートURI に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Download_UpdateInfoUri {
+            get {
+                return ResourceManager.GetString("String_Download_UpdateInfoUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   バージョン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Download_Version {
+            get {
+                return ResourceManager.GetString("String_Download_Version", resourceCulture);
             }
         }
         
@@ -112,6 +203,24 @@ namespace Pe.Installer.Properties {
         internal static string String_Execute_Start_A {
             get {
                 return ResourceManager.GetString("String_Execute_Start_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   展開 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Extract_Extract {
+            get {
+                return ResourceManager.GetString("String_Extract_Extract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   インストール に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Install {
+            get {
+                return ResourceManager.GetString("String_Install", resourceCulture);
             }
         }
         
@@ -229,6 +338,15 @@ namespace Pe.Installer.Properties {
         internal static string String_SelectDirectoryPath_A {
             get {
                 return ResourceManager.GetString("String_SelectDirectoryPath_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   開始 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Start {
+            get {
+                return ResourceManager.GetString("String_Start", resourceCulture);
             }
         }
     }

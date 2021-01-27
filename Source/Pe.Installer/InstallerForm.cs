@@ -24,7 +24,7 @@ namespace Pe.Installer
             LoggerFactory = new InternalLoggerFactory(this.listLog);
             Logger = LoggerFactory.CreateLogger(GetType());
 
-            Logger.LogInfo("START");
+            Logger.LogInfo(Properties.Resources.String_Start);
         }
 
 
@@ -107,7 +107,7 @@ namespace Pe.Installer
 #endif
                 Close();
             } else {
-                Logger.LogInfo("INSTALL");
+                Logger.LogInfo(Properties.Resources.String_Install);
 
                 this.commandExecute.Enabled = false;
                 this.commandDirectoryPath.Enabled = false;
@@ -138,7 +138,7 @@ namespace Pe.Installer
                     var hash = new Checker(progress.Current, LoggerFactory);
                     var isChecked = await hash.CheckAsync(stream, updateItemData.ArchiveSize, updateItemData.ArchiveHashKind, updateItemData.ArchiveHashValue);
                     if(!isChecked) {
-                        Logger.LogWarning("check error");
+                        Logger.LogWarning(Properties.Resources.String_CheckError);
                         return;
                     }
                     progress.Total.Stepup();
@@ -151,7 +151,7 @@ namespace Pe.Installer
                     this.commandExecute.Text = Properties.Resources.String_Execute_Start_A;
 
                 } catch(OperationCanceledException) {
-                    Logger.LogInfo("cancel");
+                    Logger.LogWarning(Properties.Resources.String_Cancel);
                 } catch(Exception ex) {
                     Logger.LogError(ex.ToString());
                 } finally {

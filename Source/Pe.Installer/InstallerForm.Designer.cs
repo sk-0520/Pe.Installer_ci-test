@@ -28,6 +28,7 @@ namespace Pe.Installer
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstallerForm));
             this.gridMain = new System.Windows.Forms.TableLayoutPanel();
             this.labelDirectoryPath = new System.Windows.Forms.Label();
             this.labelPlatform = new System.Windows.Forms.Label();
@@ -74,7 +75,7 @@ namespace Pe.Installer
             this.gridMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.gridMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.gridMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.gridMain.Size = new System.Drawing.Size(392, 389);
+            this.gridMain.Size = new System.Drawing.Size(452, 449);
             this.gridMain.TabIndex = 0;
             // 
             // labelDirectoryPath
@@ -106,7 +107,7 @@ namespace Pe.Installer
             // commandDirectoryPath
             // 
             this.commandDirectoryPath.AutoSize = true;
-            this.commandDirectoryPath.Location = new System.Drawing.Point(314, 3);
+            this.commandDirectoryPath.Location = new System.Drawing.Point(374, 3);
             this.commandDirectoryPath.Name = "commandDirectoryPath";
             this.commandDirectoryPath.Size = new System.Drawing.Size(75, 23);
             this.commandDirectoryPath.TabIndex = 3;
@@ -121,7 +122,7 @@ namespace Pe.Installer
             this.listPlatform.FormattingEnabled = true;
             this.listPlatform.Location = new System.Drawing.Point(94, 32);
             this.listPlatform.Name = "listPlatform";
-            this.listPlatform.Size = new System.Drawing.Size(214, 20);
+            this.listPlatform.Size = new System.Drawing.Size(274, 20);
             this.listPlatform.TabIndex = 4;
             // 
             // labelTotalProgress
@@ -155,7 +156,7 @@ namespace Pe.Installer
             this.progressTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.progressTotal.Location = new System.Drawing.Point(94, 58);
             this.progressTotal.Name = "progressTotal";
-            this.progressTotal.Size = new System.Drawing.Size(214, 23);
+            this.progressTotal.Size = new System.Drawing.Size(274, 23);
             this.progressTotal.TabIndex = 6;
             // 
             // listLog
@@ -167,7 +168,7 @@ namespace Pe.Installer
             this.listLog.Location = new System.Drawing.Point(94, 116);
             this.listLog.Name = "listLog";
             this.listLog.ScrollAlwaysVisible = true;
-            this.listLog.Size = new System.Drawing.Size(214, 223);
+            this.listLog.Size = new System.Drawing.Size(274, 283);
             this.listLog.TabIndex = 8;
             // 
             // progressCurrent
@@ -175,15 +176,15 @@ namespace Pe.Installer
             this.progressCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.progressCurrent.Location = new System.Drawing.Point(94, 87);
             this.progressCurrent.Name = "progressCurrent";
-            this.progressCurrent.Size = new System.Drawing.Size(214, 23);
+            this.progressCurrent.Size = new System.Drawing.Size(274, 23);
             this.progressCurrent.TabIndex = 6;
             // 
             // commandExecute
             // 
             this.commandExecute.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.commandExecute.Location = new System.Drawing.Point(94, 345);
+            this.commandExecute.Location = new System.Drawing.Point(94, 405);
             this.commandExecute.Name = "commandExecute";
-            this.commandExecute.Size = new System.Drawing.Size(214, 41);
+            this.commandExecute.Size = new System.Drawing.Size(274, 41);
             this.commandExecute.TabIndex = 10;
             this.commandExecute.Text = "*インストール/実行*";
             this.commandExecute.UseVisualStyleBackColor = true;
@@ -193,7 +194,7 @@ namespace Pe.Installer
             // 
             this.commandClose.AutoSize = true;
             this.commandClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.commandClose.Location = new System.Drawing.Point(314, 345);
+            this.commandClose.Location = new System.Drawing.Point(374, 405);
             this.commandClose.Name = "commandClose";
             this.commandClose.Size = new System.Drawing.Size(75, 41);
             this.commandClose.TabIndex = 11;
@@ -206,14 +207,14 @@ namespace Pe.Installer
             this.inputDirectoryPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.inputDirectoryPath.Location = new System.Drawing.Point(94, 5);
             this.inputDirectoryPath.Name = "inputDirectoryPath";
-            this.inputDirectoryPath.Size = new System.Drawing.Size(214, 19);
+            this.inputDirectoryPath.Size = new System.Drawing.Size(274, 19);
             this.inputDirectoryPath.TabIndex = 2;
             // 
             // linkProject
             // 
             this.linkProject.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkProject.AutoSize = true;
-            this.linkProject.Location = new System.Drawing.Point(11, 359);
+            this.linkProject.Location = new System.Drawing.Point(11, 419);
             this.linkProject.Name = "linkProject";
             this.linkProject.Size = new System.Drawing.Size(68, 12);
             this.linkProject.TabIndex = 12;
@@ -225,8 +226,9 @@ namespace Pe.Installer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(404, 401);
+            this.ClientSize = new System.Drawing.Size(464, 461);
             this.Controls.Add(this.gridMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(320, 320);
             this.Name = "InstallerForm";

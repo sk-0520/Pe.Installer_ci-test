@@ -40,7 +40,7 @@ namespace Pe.Installer
                 archive.Extract(e => {
                     var expandPath = Path.Combine(extractDirectory.FullName, e.FileName);
 
-                    Logger.LogTrace($"展開: {expandPath}");
+                    Logger.LogInfo($"{Properties.Resources.String_Extract_Extract}: {expandPath}");
                     extractedItemCount += 1;
                     ProgressLogger.Set((int)(extractedItemCount / (double)totalExtractItemCount));
 

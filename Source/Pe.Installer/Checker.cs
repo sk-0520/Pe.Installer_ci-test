@@ -29,8 +29,8 @@ namespace Pe.Installer
         {
             ProgressLogger.Wait();
 
-            Logger.LogDebug($"SIZE1: {stream.Length}");
-            Logger.LogDebug($"SIZE2: {archiveSize}");
+            Logger.LogDebug($"{Properties.Resources.String_Check_Size_Info}: {archiveSize}");
+            Logger.LogDebug($"{Properties.Resources.String_Check_Size_Data}: {stream.Length}");
             if(stream.Length != archiveSize) {
                 Logger.LogWarning($"{stream.Length} != {archiveSize}");
                 return Task.FromResult(false);
@@ -42,8 +42,8 @@ namespace Pe.Installer
                     var hash = algorithm.ComputeHash(stream);
                     stream.Position = 0;
                     var value = BitConverter.ToString(hash).Replace("-", string.Empty);
-                    Logger.LogDebug($"HASH1: {hashValue}");
-                    Logger.LogDebug($"HASH2: {value}");
+                    Logger.LogDebug($"{Properties.Resources.String_Check_Hash_Info}: {hashValue}");
+                    Logger.LogDebug($"{Properties.Resources.String_Check_Size_Data}: {value}");
                     return string.Equals(hashValue, value, StringComparison.OrdinalIgnoreCase);
                 }
             });
