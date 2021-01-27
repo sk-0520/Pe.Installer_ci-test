@@ -88,6 +88,10 @@ namespace Pe.Installer
                         if(prevPercent != percent) {
                             prevPercent = percent;
                             Logger.LogDebug($"{totalReadSize} / {length}");
+
+                            if(percent % 10 == 0) {
+                                Logger.LogInfo($"{percent / 100.0:P0} - {totalReadSize:#,0} / {length:#,0}");
+                            }
                         }
                         ProgressLogger.Set(percent);
                     }

@@ -146,8 +146,26 @@
   <data name="String_Label_Platform_A" xml:space="preserve">
     <value>プラットフォーム</value>
   </data>
+  <data name="String_Label_Project_A" xml:space="preserve">
+    <value>プロジェクト(&amp;P)</value>
+  </data>
   <data name="String_Label_TotalProgress_A" xml:space="preserve">
     <value>全体進捗</value>
+  </data>
+  <data name="String_LogKind_Debug" xml:space="preserve">
+    <value>検証</value>
+  </data>
+  <data name="String_LogKind_Error" xml:space="preserve">
+    <value>委譲</value>
+  </data>
+  <data name="String_LogKind_Information" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="String_LogKind_Trace" xml:space="preserve">
+    <value>些細</value>
+  </data>
+  <data name="String_LogKind_Warning" xml:space="preserve">
+    <value>警告</value>
   </data>
   <data name="String_Platform_32bit" xml:space="preserve">
     <value>32bit</value>

@@ -42,6 +42,8 @@ namespace Pe.Installer
 #if DEBUG
         public static string ApplicationDataDirectoryPath { get; } = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "data");
 #endif
+        public static Uri ProjectUri { get; } = new Uri("https://bitbucket.org/sk_0520/pe.installer");
+
         #endregion
     }
 }

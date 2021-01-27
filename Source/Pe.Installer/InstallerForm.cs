@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -66,7 +67,7 @@ namespace Pe.Installer
             this.commandDirectoryPath.Text = Properties.Resources.String_SelectDirectoryPath_A;
             this.commandExecute.Text = Properties.Resources.String_Execute_Install_A;
             this.commandClose.Text = Properties.Resources.String_Close_A;
-
+            this.linkProject.Text = Properties.Resources.String_Label_Project_A;
         }
 
         private void commandDirectoryPath_Click(object sender, EventArgs e)
@@ -175,5 +176,20 @@ namespace Pe.Installer
             }
         }
 
+        private void InstallerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(CancellationTokenSource != null && !CancellationTokenSource.IsCancellationRequested) {
+                e.Cancel = true;
+            }
+        }
+
+        private void linkProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try {
+                Process.Start(Constants.ProjectUri.ToString());
+            } catch(Exception ex) {
+                Logger.LogWarning(ex.ToString());
+            }
+        }
     }
 }

@@ -143,11 +143,65 @@ namespace Pe.Installer.Properties {
         }
         
         /// <summary>
+        ///   プロジェクト(&amp;P) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Label_Project_A {
+            get {
+                return ResourceManager.GetString("String_Label_Project_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   全体進捗 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string String_Label_TotalProgress_A {
             get {
                 return ResourceManager.GetString("String_Label_TotalProgress_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   検証 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_LogKind_Debug {
+            get {
+                return ResourceManager.GetString("String_LogKind_Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   委譲 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_LogKind_Error {
+            get {
+                return ResourceManager.GetString("String_LogKind_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   情報 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_LogKind_Information {
+            get {
+                return ResourceManager.GetString("String_LogKind_Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   些細 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_LogKind_Trace {
+            get {
+                return ResourceManager.GetString("String_LogKind_Trace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   警告 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_LogKind_Warning {
+            get {
+                return ResourceManager.GetString("String_LogKind_Warning", resourceCulture);
             }
         }
         

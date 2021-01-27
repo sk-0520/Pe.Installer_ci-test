@@ -53,19 +53,32 @@ namespace Pe.Installer
 
         public string Name { get; }
 
+        IReadOnlyDictionary<LogKind, string> LogKindMap { get; } = new Dictionary<LogKind, string>() {
+            [LogKind.Trace] = Properties.Resources.String_LogKind_Trace,
+            [LogKind.Debug] = Properties.Resources.String_LogKind_Debug,
+            [LogKind.Warning] = Properties.Resources.String_LogKind_Warning,
+            [LogKind.Information] = Properties.Resources.String_LogKind_Information,
+            [LogKind.Error] = Properties.Resources.String_LogKind_Error,
+        };
+
         #endregion
 
         #region function
 
         void Log(LogKind logKind, string message, string callerMemberName, string callerFilePath, int callerLineNumber)
         {
+#if !DEBUG
+            if(logKind == LogKind.Trace || logKind == LogKind.Debug) {
+                return;
+            }
+#endif
             if(ListBox.InvokeRequired) {
                 ListBox.BeginInvoke(new Action(() => {
-                    ListBox.Items.Add($"{logKind} {message}");
+                    ListBox.Items.Add($"[{LogKindMap[logKind]}] {message}");
                     ListBox.SelectedIndex = ListBox.Items.Count - 1;
                 }));
             } else {
-                ListBox.Items.Add($"{logKind} {message}");
+                ListBox.Items.Add($"[{LogKindMap[logKind]}] {message}");
                 ListBox.SelectedIndex = ListBox.Items.Count - 1;
             }
         }

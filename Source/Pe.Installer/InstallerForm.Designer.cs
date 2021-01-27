@@ -1,4 +1,4 @@
-﻿namespace Pe.Installer
+namespace Pe.Installer
 {
     partial class InstallerForm
     {
@@ -41,6 +41,7 @@
             this.commandExecute = new System.Windows.Forms.Button();
             this.commandClose = new System.Windows.Forms.Button();
             this.inputDirectoryPath = new System.Windows.Forms.TextBox();
+            this.linkProject = new System.Windows.Forms.LinkLabel();
             this.gridMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             this.gridMain.Controls.Add(this.commandExecute, 1, 5);
             this.gridMain.Controls.Add(this.commandClose, 2, 5);
             this.gridMain.Controls.Add(this.inputDirectoryPath, 1, 0);
+            this.gridMain.Controls.Add(this.linkProject, 0, 5);
             this.gridMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridMain.Location = new System.Drawing.Point(6, 6);
             this.gridMain.Name = "gridMain";
@@ -207,6 +209,18 @@
             this.inputDirectoryPath.Size = new System.Drawing.Size(214, 19);
             this.inputDirectoryPath.TabIndex = 2;
             // 
+            // linkProject
+            // 
+            this.linkProject.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linkProject.AutoSize = true;
+            this.linkProject.Location = new System.Drawing.Point(11, 359);
+            this.linkProject.Name = "linkProject";
+            this.linkProject.Size = new System.Drawing.Size(68, 12);
+            this.linkProject.TabIndex = 12;
+            this.linkProject.TabStop = true;
+            this.linkProject.Text = "*プロジェクト*";
+            this.linkProject.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProject_LinkClicked);
+            // 
             // InstallerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -220,6 +234,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "*Pe Installer*";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InstallerForm_FormClosing);
             this.Load += new System.EventHandler(this.InstallerForm_Load);
             this.gridMain.ResumeLayout(false);
             this.gridMain.PerformLayout();
@@ -242,6 +257,7 @@
         private System.Windows.Forms.ProgressBar progressCurrent;
         private System.Windows.Forms.Button commandExecute;
         private System.Windows.Forms.Button commandClose;
+        private System.Windows.Forms.LinkLabel linkProject;
     }
 }
 
