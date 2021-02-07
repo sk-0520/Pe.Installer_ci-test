@@ -1,6 +1,7 @@
 # Pe インストーラ
 
 * [ダウンロード](https://bitbucket.org/sk_0520/pe.installer/downloads/Pe.Installer.exe)
+* 本インストーラは[Pe](https://bitbucket.org/sk_0520/pe/)を自動インストールします
 
 
 ## 動作環境
