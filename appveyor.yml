@@ -1,0 +1,17 @@
+version: '{build}'
+branches:
+  only:
+  - master
+image: Previous Visual Studio 2019
+configuration: Release
+platform: x86
+cache: Source\packages
+before_build:
+- cmd: nuget restore Source\Pe.Installer.sln
+build:
+  project: Source\Pe.Installer.sln
+  verbosity: normal
+artifacts:
+- path: Source/Pe.Installer/bin/x86/Release/Pe.Installer.exe
+deploy_script:
+- cmd: curl --user %PE_INSTALLER_ACCOUNT%:%PE_INSTALLER_PASSWORD% -X POST %PE_API_DOWNLOAD_URL% -F files=@Source/Pe.Installer/bin/x86/Release/Pe.Installer.exe
