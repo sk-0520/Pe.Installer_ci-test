@@ -1,9 +1,6 @@
 name: Release Build
 
-on:
-  push:
-    branches:
-    - "master"
+on: push
 
 env:
   SOLUTION_PATH: Source\Pe.Installer.sln
