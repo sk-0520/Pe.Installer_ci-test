@@ -1,0 +1,35 @@
+name: Release Build
+
+on:
+  push:
+    branches:
+    - "master"
+
+env:
+  SOLUTION_PATH: Source\Pe.Installer.sln
+  OUTPUT_PATH: Source/Pe.Installer/bin/x86/Release/Pe.Installer.exe
+
+jobs:
+
+  build:
+
+    runs-on: windows-2022
+
+    steps:
+    - name: <Checkout> Repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: <Add> msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: <Build> Application
+      shell: cmd
+      run: msbuild ${{ env.SOLUTION_PATH }} /t:Restore /p:Configuration=Release
+
+    - name: <Artifact> Application
+      uses: actions/upload-artifact@v3
+      with:
+        name: Pe.Installer
+        path: ${{ env.OUTPUT_PATH }}
