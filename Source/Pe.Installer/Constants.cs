@@ -17,9 +17,9 @@ namespace Pe.Installer
         /// </summary>
         public static Uri UpdateFileUri { get; } =
 #if DEBUG
-             new Uri("https://bitbucket.org/sk_0520/pe-ci_test/downloads/update.json")
+             new Uri("http://localhost/api/application/version/update")
 #else
-             new Uri("https://bitbucket.org/sk_0520/pe/downloads/update.json")
+             new Uri("https://peserver.gq/api/application/version/update")
 #endif
         ;
 
@@ -42,7 +42,7 @@ namespace Pe.Installer
 #if DEBUG
         public static string ApplicationDataDirectoryPath { get; } = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "data");
 #endif
-        public static Uri ProjectUri { get; } = new Uri("https://bitbucket.org/sk_0520/pe.installer");
+        public static Uri ProjectUri { get; } = new Uri("https://github.com/sk-0520/Pe.Installer");
 
         #endregion
     }
