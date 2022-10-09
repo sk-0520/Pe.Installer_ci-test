@@ -67,7 +67,7 @@ jobs:
         shell: pwsh
         run: |
           tree /F
-          $version = (Get-Item Pe.Installer\Pe.Installer.exe).VersionInfo.Version
+          $version = (Get-Item Pe.Installer\Pe.Installer.exe).VersionInfo.FileVersion
           Write-Output "::set-output name=dot::$version"
           Write-Output $version
 
