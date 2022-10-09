@@ -40,6 +40,8 @@ namespace Pe.Installer
 
             var updateInfo = JsonConvert.DeserializeObject<UpdateData>(updateInfoText);
 
+            Logger.LogDebug(JsonConvert.SerializeObject(updateInfo));
+
             var updateItemData = updateInfo.Items
                 .Where(i => i.Platform == platform)
                 .OrderByDescending(i => i.Version)
