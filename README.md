@@ -13,7 +13,7 @@
 
 ## ライセンス
 
-* [WTFPL 2](sam.zoy.org/wtfpl/COPYING)
+* WTFPL 2
 
 
 ## ライブラリ
