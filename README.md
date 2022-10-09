@@ -1,9 +1,8 @@
 # Pe インストーラ
 
-[![Build status](https://ci.appveyor.com/api/projects/status/r8ulo660vyp8lydj/branch/master?svg=true)](https://ci.appveyor.com/project/sk_0520/pe-installer/branch/master)
+[![Release Build](https://github.com/sk-0520/Pe.Installer/actions/workflows/release.yaml/badge.svg?branch=master)](https://github.com/sk-0520/Pe.Installer/actions/workflows/release.yaml?query=branch%3Amaster)
 
-
-* [ダウンロード](https://github.com/sk-0520/Pe.Installer/releases)
+* [ダウンロード](https://github.com/sk-0520/Pe.Installer/releases/latest/download/Pe.Installer.exe)
 * 本インストーラは[Pe](https://github.com/sk-0520/Pe)を自動インストールします
 
 
