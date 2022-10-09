@@ -66,8 +66,10 @@ jobs:
         id: version
         shell: pwsh
         run: |
+          tree /F
           $version = (Get-Item Pe.Installer\Pe.Installer.exe).VersionInfo.Version
           Write-Output "::set-output name=dot::$version"
+          Write-Output $version
 
       - name: <Delete> TEST Tag
         if: github.ref != 'refs/heads/master'
