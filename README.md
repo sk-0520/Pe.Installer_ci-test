@@ -3,8 +3,8 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/r8ulo660vyp8lydj/branch/master?svg=true)](https://ci.appveyor.com/project/sk_0520/pe-installer/branch/master)
 
 
-* [ダウンロード](https://bitbucket.org/sk_0520/pe.installer/downloads/Pe.Installer.exe)
-* 本インストーラは[Pe](https://bitbucket.org/sk_0520/pe/)を自動インストールします
+* [ダウンロード](https://github.com/sk-0520/Pe.Installer/releases)
+* 本インストーラは[Pe](https://github.com/sk-0520/Pe)を自動インストールします
 
 
 ## 動作環境
