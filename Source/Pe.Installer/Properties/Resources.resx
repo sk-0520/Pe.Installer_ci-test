@@ -192,7 +192,7 @@
     <value>検証</value>
   </data>
   <data name="String_LogKind_Error" xml:space="preserve">
-    <value>委譲</value>
+    <value>異常</value>
   </data>
   <data name="String_LogKind_Information" xml:space="preserve">
     <value>情報</value>
