@@ -23,7 +23,9 @@ jobs:
 
     - name: <Build> Application
       shell: cmd
-      run: msbuild ${{ env.SOLUTION_PATH }} /t:Restore /p:Configuration=Release
+      run: |
+        msbuild ${{ env.SOLUTION_PATH }} /t:Restore /p:Configuration=Release
+        tree
 
     - name: <Artifact> Application
       uses: actions/upload-artifact@v3
