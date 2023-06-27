@@ -71,18 +71,21 @@ function ConvertSvgToPng([string] $srcSvgPath) {
 	foreach ($size in $iconSize) {
 		$pngPath = "${pngBasePath}_${size}.png"
 		Write-Host "   -> $pngPath"
-		# 1回じゃ無理なんで2回やるべし。待機も試したけどなんかダメだった
-		& $exeIncspace `
-			--export-dpi=96 `
-			--export-width=$size `
-			--export-height=$size `
-			--export-filename="$pngPath" `
-			--export-overwrite `
-			--batch-process `
-			--export-type=png `
-			--export-filename="$pngPath" `
-			"$srcSvgPath"
-		Start-Sleep -Seconds 1
+		
+		$incspaceArgumentList = @(
+			"--export-dpi=96",
+			"--export-width=$size",
+			"--export-height=$size",
+			"--export-overwrite",
+			"--export-type=png",
+			"--export-filename=`"$pngPath`"",
+			"`"$srcSvgPath`""
+		)
+		
+		$incspaceProcess = Start-Process -FilePath $exeIncspace -ArgumentList $incspaceArgumentList -WindowStyle Hidden -Wait -PassThru
+		if($incspaceProcess.ExitCode -ne 0) {
+			throw $exeIncspace + ":" + $incspaceProcess.ExitCode
+		}
 	}
 }
 
@@ -93,8 +96,15 @@ function PackIcon([string] $directoryPath, [string] $pngPattern, [string] $outpu
 		| Select-Object -ExpandProperty FullName `
 		| Sort-Object { [regex]::Replace($_, '\d+', { $args[0].Value.PadLeft(20) }) }
 	)
-	Write-Host $inputFiles
-	& $exeImageMagic $inputFiles $outputPath
+	
+	$imageMagicArgumentList = @()
+	$imageMagicArgumentList += $inputFiles
+	$imageMagicArgumentList += $outputPath
+
+	$imageMagicProcess = Start-Process -File $exeImageMagic -ArgumentList $imageMagicArgumentList -WindowStyle Hidden -Wait -PassThru
+	if($imageMagicProcess.ExitCode -ne 0) {
+		throw $exeImageMagic + ":" + $imageMagicProcess.ExitCode
+	}
 }
 
 function MoveAppIcon {
