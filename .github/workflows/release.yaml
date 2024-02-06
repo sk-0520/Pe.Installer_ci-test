@@ -50,7 +50,7 @@ jobs:
 
     needs: build
 
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/ci-test'
 
     runs-on: windows-2022
 
